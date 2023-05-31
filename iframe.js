@@ -1,4 +1,4 @@
-looker.plugins.visualizations.add {
+looker.plugins.visualizations.add({
 options: {
         url: {
       type: 'string',
@@ -14,7 +14,7 @@ options: {
     // Append the iframe to the container element
     element.appendChild(iframe);
   },
-  update: function(data, element, config, queryResponse) {
+   updateAsync: function(data, element, config, queryResponse, details, doneRendering) {
     // No data manipulation or updates needed for this visualization
   }
 });
