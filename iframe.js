@@ -1,4 +1,4 @@
-looker.plugins.visualizations.add('iframe_viz', {
+looker.plugins.visualizations.add {
 options: {
         url: {
       type: 'string',
