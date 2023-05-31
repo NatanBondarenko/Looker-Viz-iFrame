@@ -1,25 +1,15 @@
 looker.plugins.visualizations.add('iframe_viz', {
-  options: {
-    html_template: {
+options: {
+        url: {
       type: 'string',
       label: 'URL',
-      default: '',
-      display: flex,
-      order: 1
+      default: '{{ value }}'
+        }
     },
-    description: {
-      type: 'string',
-      label: 'Description',
-      default: '',
-      display: flex,
-      order: 2
-    }
-  },
   create: function(element, config) {
     // Create the iframe element
     const iframe = document.createElement('iframe');
-    iframe.src = config.html_template;
-    iframe.title = config.description;
+    iframe.src = config.url;
 
     // Append the iframe to the container element
     element.appendChild(iframe);
