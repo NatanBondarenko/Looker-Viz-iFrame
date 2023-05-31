@@ -27,13 +27,7 @@ looker.plugins.visualizations.add({
     iframe.src = config.url;
     iframe.setAttribute('height', config.height);
     iframe.setAttribute('width', config.width);
-
-    // Apply scrolling attribute based on the configuration
-    if (config.scroll) {
-      iframe.setAttribute('scrolling', 'yes');
-    } else {
-      iframe.setAttribute('scrolling', 'no');
-    }
+    iframe.style.overflow = config.scroll ? 'auto' : 'hidden';
 
     // Append the iframe to the container element
     element.appendChild(iframe);
