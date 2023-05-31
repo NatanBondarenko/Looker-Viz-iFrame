@@ -3,7 +3,7 @@ looker.plugins.visualizations.add({
     url: {
       type: 'string',
       label: 'URL',
-      default: 'https://www.google.com/search?igu=1'
+      default: 'https://www.google.com'
     },
     height: {
       type: 'string',
@@ -20,8 +20,8 @@ looker.plugins.visualizations.add({
     // Create the iframe element
     const iframe = document.createElement('iframe');
     iframe.src = config.url;
-    iframe.style.height = config.height;
-    iframe.style.width = config.width;
+    iframe.setAttribute('height', config.height);
+    iframe.setAttribute('width', config.width);
 
     // Append the iframe to the container element
     element.appendChild(iframe);
