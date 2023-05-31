@@ -19,15 +19,42 @@ looker.plugins.visualizations.add({
       type: 'boolean',
       label: 'Scroll the page',
       default: true
+    },
+    fullscreen: {
+      type: 'boolean',
+      label: 'Fullscreen mode',
+      default: false
     }
   },
   create: function(element, config) {
     // Create the iframe element
     const iframe = document.createElement('iframe');
     iframe.src = config.url;
+
+    // Set the height and width attributes of the iframe
     iframe.setAttribute('height', config.height);
     iframe.setAttribute('width', config.width);
-    iframe.style.overflow = config.scroll ? 'auto' : 'hidden';
+
+    // Apply scrolling attribute based on the configuration
+    if (config.scroll) {
+      iframe.setAttribute('scrolling', 'yes');
+    } else {
+      iframe.setAttribute('scrolling', 'no');
+    }
+
+    // Set the fullscreen mode based on the configuration
+    if (config.fullscreen) {
+      iframe.style.position = 'fixed';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = 'none';
+      iframe.style.margin = '0';
+      iframe.style.padding = '0';
+      iframe.style.overflow = 'hidden';
+      element.style.overflow = 'hidden';
+    }
 
     // Append the iframe to the container element
     element.appendChild(iframe);
