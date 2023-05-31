@@ -14,6 +14,11 @@ looker.plugins.visualizations.add({
       type: 'string',
       label: 'Width',
       default: '600px'
+    },
+    scroll: {
+      type: 'boolean',
+      label: 'Scroll the page',
+      default: true
     }
   },
   create: function(element, config) {
@@ -22,6 +27,13 @@ looker.plugins.visualizations.add({
     iframe.src = config.url;
     iframe.setAttribute('height', config.height);
     iframe.setAttribute('width', config.width);
+
+    // Apply scrolling attribute based on the configuration
+    if (config.scroll) {
+      iframe.setAttribute('scrolling', 'yes');
+    } else {
+      iframe.setAttribute('scrolling', 'no');
+    }
 
     // Append the iframe to the container element
     element.appendChild(iframe);
