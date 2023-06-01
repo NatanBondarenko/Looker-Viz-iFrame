@@ -30,8 +30,6 @@ looker.plugins.visualizations.add({
     // Create the iframe element
     const iframe = document.createElement('iframe');
     iframe.src = config.url;
-
-    // Set the height and width attributes of the iframe
     iframe.setAttribute('height', config.height);
     iframe.setAttribute('width', config.width);
 
@@ -55,6 +53,11 @@ looker.plugins.visualizations.add({
       iframe.style.overflow = 'hidden';
       element.style.overflow = 'hidden';
     }
+
+    // Add click event listener to open the iframe in a new window
+    iframe.addEventListener('click', function() {
+      window.open(config.url, '_blank');
+    });
 
     // Append the iframe to the container element
     element.appendChild(iframe);
