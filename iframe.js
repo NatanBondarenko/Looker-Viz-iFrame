@@ -54,8 +54,8 @@ looker.plugins.visualizations.add({
       element.style.overflow = 'hidden';
     }
 
-    // Add click event listener to open the iframe in a new window
-    iframe.addEventListener('click', function() {
+    // Add click event listener to open the URL in a new window
+    element.addEventListener('click', function() {
       window.open(config.url, '_blank');
     });
 
