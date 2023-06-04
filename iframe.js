@@ -3,7 +3,7 @@ looker.plugins.visualizations.add({
     url: {
       type: 'string',
       label: 'URL',
-      default: 'https://www.google.com'
+      default: 'https://www.google.com/search?igu=1'
     },
     height: {
       type: 'string',
